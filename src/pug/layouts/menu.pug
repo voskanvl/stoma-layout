@@ -1,5 +1,7 @@
+include ../mixins/svg.pug
 .menu 
-    ul
+    ul.menu__nav
         each i in menu
             li.menu__item 
+                +svg("menu__svg","tooth")
                 a.menu__link(href=i.href)= i.name

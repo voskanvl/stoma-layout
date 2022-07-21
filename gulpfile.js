@@ -9,6 +9,7 @@ const sourcemaps = require("gulp-sourcemaps")
 const browserSync = require("browser-sync").create()
 const fs = require("fs/promises")
 const path = require("path")
+const svgSprite = require("gulp-svg-sprite")
 
 const clean = path => cb => {
     del([path])
@@ -24,6 +25,19 @@ const sync = () =>
             port: 8080,
         },
     })
+
+const svgSpriteTask = cb =>
+    src("./src/assets/svg/*.svg")
+        .pipe(
+            svgSprite({
+                mode: {
+                    stack: {
+                        sprite: "../sprite.svg", //sprite file name
+                    },
+                },
+            }),
+        )
+        .pipe(dest("./dist"))
 
 const jsTask = cb =>
     src("./src/js/main.js")
@@ -46,10 +60,8 @@ const pugTask = async () => {
         })
     dataFromFiles = await Promise.all(dataFromFiles)
     dataFromFiles = dataFromFiles.reduce((acc, e) => ({ ...acc, ...e }), {})
-    // dataFromFiles = dataFromFiles[0]
-    // console.log("🚀 ~ dataFromFiles", dataFromFiles)
 
-    src("./src/pug/index.pug")
+    src("./src/pug/**/*.pug")
         .pipe(
             pug({
                 pretty: true,
@@ -75,7 +87,7 @@ const watchTask = () => {
         "change",
         browserSync.reload,
     )
-    watch("./src/pug/*", series(clean("./dist/*.html"), pugTask)).on(
+    watch("./src/pug/**/*.pug", series(clean("./dist/*.html"), pugTask)).on(
         "change",
         browserSync.reload,
     )
@@ -87,11 +99,17 @@ const watchTask = () => {
         "change",
         browserSync.reload,
     )
+    watch(
+        "./src/assets/svg/**/*.svg",
+        series(clean("./dist/*.svg"), svgSpriteTask),
+    ).on("change", browserSync.reload)
 }
 
 exports.js = jsTask
 
 exports.watch = watchTask
+
+exports.sprite = svgSpriteTask
 
 exports.browserSync = parallel(sync, watchTask)
 
@@ -99,5 +117,6 @@ const defaultTask = parallel(
     series(clean("./dist/main.js"), jsTask),
     series(clean("./dist/*.html"), pugTask),
     series(clean("./dist/*.css"), sassTask),
+    series(clean("./dist/*.svg"), svgSpriteTask),
 )
 exports.default = defaultTask
