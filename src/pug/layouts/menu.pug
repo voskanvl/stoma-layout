@@ -1,7 +1,16 @@
 include ../mixins/svg.pug
-.menu 
-    ul.menu__nav
-        each i in menu
-            li.menu__item 
-                +svg("menu__svg","tooth")
-                a.menu__link(href=i.href)= i.name
+.menu__container
+    .menu 
+        button.menu__close 
+            +svg("menu__close-svg","menu")
+        ul.menu__nav
+            each i in menu
+                li.menu__item 
+                    +svg("menu__svg","tooth")
+                    a.menu__link(href=i.href)= i.name
+            li.menu__item.menu__mobile
+                +svg("menu__svg","phone")
+                a.menu__link(href= "tel:"+common.phone)= common.phone
+            li.menu__item.menu__mobile
+                +svg("menu__svg","email")
+                a.menu__link(href= "mailto:"+common.email)= common.email
