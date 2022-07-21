@@ -1,17 +1,4 @@
 {
-    "common": {
-        "address": "г. Пенза, ул. Аустрина 50",
-        "phone": "8 8412 90 93 13",
-        "email": "gaberox770@shbiso.com"
-    },
-    "menu": [
-        { "name": "Главная", "href": "/" },
-        { "name": "Услуги стоматологии", "href": "/" },
-        { "name": "Цены", "href": "/" },
-        { "name": "Cпециалисты", "href": "/" },
-        { "name": "Контролирующие органы", "href": "/" },
-        { "name": "Контакты", "href": "/" }
-    ],
     "specialists": {
         "title": "Специалисты нашей клинини",
         "text": "Aenean eleifend egestas consequat. Etiam elementum, lectus a convallis mattis, ex libero volutpat enim, non tempus odio nunc quis purus. Vestibulum in metus nec sem iaculis pretium in consectetur ex. Aliquam pharetra feugiat purus molestie pulvinar. Donec luctus pretium placerat. Suspendisse quis odio elementum, sagittis justo a, congue urna. Fusce euismod tincidunt metus",
