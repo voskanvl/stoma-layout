@@ -1,0 +1,22 @@
+include ../mixins/svg.pug
+
+.header__container
+    .header 
+        .header__logo
+            img(src="../../assets/images/logo/logoBlue.png" alt="logo")
+        main.header__main
+            .header__item 
+                .header__svg 
+                    +svg("","location")
+                .header__address= common.address
+            a.header__item(href="tel:"+common.phone) 
+                .header__svg 
+                    +svg("","phone")
+                .header__phone= common.phone
+            a.header__item(href="mailto:"+common.email)  
+                .header__svg 
+                    +svg("","email")
+                .header__email= common.email
+            button.header__button Заказать звонок
+        button.header__openmenu 
+            +svg("header__close-svg","menu")
