@@ -1,0 +1,14 @@
+{
+    "benefits": [
+        { "svg": "benefits--responsibility", "title": "ответственность" },
+        {
+            "svg": "benefits--perfectionism",
+            "title": "Стремление к совершенству"
+        },
+        {
+            "svg": "benefits--individual_approach",
+            "title": "Индивидуальный подход"
+        },
+        { "svg": "benefits--affordable_prices", "title": "Доступные цены" }
+    ]
+}

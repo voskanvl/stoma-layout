@@ -1,0 +1,8 @@
+include ../../mixins/svg.pug
+
+ul.benefits 
+    each i in benefits 
+        li.benefits__item 
+            .benefits__svg 
+                +svg("",i.svg)
+            .benefits__title= i.title
