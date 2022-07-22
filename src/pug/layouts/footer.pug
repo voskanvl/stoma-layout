@@ -1,0 +1,32 @@
+include ../mixins/submenu
+include ../mixins/svg
+
+.footer__container 
+    .footer 
+        header.footer__logo 
+            img(src="../../assets/images/logo/logoWhite.png" alt="logo")
+        main.footer__nav 
+            ul.footer__menu 
+                each i in footer 
+                    if i.submenu
+                        li.footer__item
+                            +submenu(i)
+                    else 
+                        li.footer__item 
+                            a.footer__link(href=i.href)= i.name
+        footer.footer__contacts 
+            .footer__address
+                .footer__icon  
+                    +svg("","location-white")
+                p= common.address
+            .footer__phone
+                .footer__icon 
+                    +svg("","phone-white")
+                p= common.phone
+            .footer__email
+                .footer__icon 
+                    +svg("","email-white")
+                p= common.email
+    .ruws 
+        p Разработано
+        img(src="../../assets/svg/ruws.svg" alt="ruws logo")
