@@ -12,5 +12,6 @@ function start() {
         type: "loop",
         perPage: 2,
         gap: "114px",
+        arrowPath: " ",
     }).mount();
 }
