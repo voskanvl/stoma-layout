@@ -1,8 +1,10 @@
 .submenu
+    position: relative
 
     &__header
         display: flex
-        align-items: flex-end
+        align-items: center
+        justify-content: center
 
     &__title
         margin-right: 6px
@@ -15,4 +17,46 @@
             height: 100%
 
     &__main
+        opacity: 0
+        @media screen and ( max-width: 1024px )
+            display: none
+    &__check
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 1rem
+        opacity: 0
+
+    &__check:checked ~ .submenu__header > .submenu__arrow_top
+        display: block
+
+    &__check:checked ~ .submenu__header > .submenu__arrow_down
         display: none
+
+    &__check:checked ~ main
+        opacity: 1
+        @media screen and ( max-width: 1062px )
+            display: block
+
+    &__nav
+        padding: 0
+        max-width: 126px
+        padding-left: 20px
+        @media screen and ( max-width: 1024px )
+            max-width: 215px
+
+    &__item
+        list-style: none
+        font-size: 10px
+        & > a
+            color: #fff
+        &:not(:last-child)
+            margin-bottom: 10px
+
+    &__main
+        margin-top: 12px
+
+    &__arrow
+        &_top
+            display: none
