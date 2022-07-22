@@ -1,15 +1,16 @@
-import Splide from "@splidejs/splide"
+import Splide from "@splidejs/splide";
 
 if (document.readyState === "loading") {
-    start()
+    start();
 } else {
-    document.addEventListener("DOMContentLoaded", start)
+    document.addEventListener("DOMContentLoaded", start);
 }
 
 function start() {
-    console.log("start")
+    console.log("start");
     new Splide(".splide", {
         type: "loop",
         perPage: 2,
-    }).mount()
+        gap: "114px",
+    }).mount();
 }

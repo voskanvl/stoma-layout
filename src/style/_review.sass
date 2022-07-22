@@ -1,0 +1,22 @@
+.review
+    background: #D3D8DE
+    border-radius: 15px
+    position: relative
+    height: 587px
+    &::after
+        content: ""
+        position: absolute
+        width: 0
+        height: 0
+        background: transparent
+        border-left: 19px solid #D3D8DE
+        border-top: 19px solid transparent
+        border-right: 19px solid transparent
+        border-bottom: 19px solid transparent
+        bottom: 0
+        left: 152px
+        transform: translateY(50%)
+        z-index: -1
+    &__text, &__phone
+        margin: 30px 31px 37px 41px
+        line-height: 143%

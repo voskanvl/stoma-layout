@@ -1,10 +1,16 @@
+include ../../mixins/svg.pug
+
 .reviews 
     article.splide
         .splide__track
             ul.splide__list
-                li.splide__slide 
-                    img(src="https://picsum.photos/300/400")
-                li.splide__slide
-                    img(src="https://picsum.photos/300/400")
-                li.splide__slide
-                    img(src="https://picsum.photos/300/400")
+                each i in reviews
+                    li.splide__slide 
+                        .review 
+                            .stars__container 
+                                each star in new Array(i.stars).fill(null) 
+                                        .stars__item
+                                            +svg("","star")
+                            .review__text= i.text 
+                            .review__phone= i.tel
+                
