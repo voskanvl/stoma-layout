@@ -1,0 +1,12 @@
+include ./svg.pug
+
+mixin submenu(item)
+    .submenu
+        header.submenu__header
+            .submenu__title= item.name 
+            .submenu__arrow 
+                +svg("","arrowDown")
+        main.submenu__main 
+            ul.submenu__nav 
+                each i in item.submenu 
+                    li.submenu__item= i 
