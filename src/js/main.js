@@ -13,7 +13,7 @@ function start() {
 
     let splideReview = new Splide("#splideReview", {
         type: "loop",
-        gap: "6.197917vw",
+        gap: "3vw",
         fixedWidth: "clamp(370px,48vw, 603px",
         arrowPath: " ",
     }).mount();
