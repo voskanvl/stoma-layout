@@ -1,0 +1,17 @@
+{
+    "services": [
+        { "name": "Лечение зубов", "img": "../assets/images/main/rentgen.png" },
+        {
+            "name": "Отбеливание ",
+            "img": "../assets/images/main/doctor-with-glass.png"
+        },
+        {
+            "name": "Протезирование зубов ",
+            "img": "../assets/images/main/tools.png"
+        },
+        {
+            "name": "Протезирование зубов ",
+            "img": "../assets/images/main/tools1.png"
+        }
+    ]
+}

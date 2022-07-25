@@ -1,10 +1,11 @@
 include ../../mixins/svg.pug
 
 .reviews 
-    article.splide
+    article#splideReview.splide
         .splide__track
             ul.splide__list
                 each i in reviews
+                    //- p welcome
                     li.splide__slide 
                         .review 
                             .stars__container 

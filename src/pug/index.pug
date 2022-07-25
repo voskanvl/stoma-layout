@@ -1,8 +1,12 @@
 extends ./layouts/layout.pug
     
 block main
+    section.tiser__container 
+        include ./blocks/index/tiser.pug
     section.benefits__container 
         include ./blocks/index/benefits.pug
+    section.services__container 
+        include ./blocks/index/services.pug
     section.specialists__container 
         include ./blocks/index/specialists.pug
     section.reviews__container 

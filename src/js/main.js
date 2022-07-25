@@ -8,10 +8,13 @@ if (document.readyState === "loading") {
 
 function start() {
     console.log("start");
-    new Splide(".splide", {
+    new Splide("#splideReview", {
         type: "loop",
         perPage: 2,
         gap: "114px",
         arrowPath: " ",
+    }).mount();
+    new Splide("#splideTiser", {
+        perPage: 1,
     }).mount();
 }

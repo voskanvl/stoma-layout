@@ -1,0 +1,40 @@
+.tiser
+
+    &__container
+        position: relative
+        height: 35vw
+        margin-bottom: 90px
+        @media screen and ( max-width: 1024px )
+            height: max-content
+
+    &__img
+        clip-path: polygon(0% 0, 100% 0%, 100% 100%, 20% 100%)
+        position: absolute
+        right: 0
+        z-index: 2
+        width: 71.8229vw
+        @media screen and ( max-width: 1024px )
+            clip-path: unset
+            position: static
+            width: 100%
+
+    &__text
+        padding: 0
+        margin: 0
+        text-transform: uppercase
+        color: #fff
+        font-size: clamp(12px,1.1458vw,22px)
+        @media screen and ( max-width: 1024px )
+            font-size: 22px
+
+    &__wrapper
+        padding: 72px 35px
+        background: #01688C
+        position: absolute
+        left: 0
+        right: 0
+        top: 50%
+        transform: translateY(-50%)
+        @media screen and ( max-width: 1024px )
+            position: static
+            transform: unset

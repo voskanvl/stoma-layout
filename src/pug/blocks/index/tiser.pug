@@ -1,0 +1,11 @@
+.tiser
+    article#splideTiser.splide
+        .splide__track
+            ul.splide__list
+                each i in [1,2,3,4]
+                    li.splide__slide 
+                        .tiser__wrapper
+                            .tiser__block
+                                each i in tiser.text
+                                    p.tiser__text= i
+                        img.tiser__img(src=tiser.img alt="tiser")

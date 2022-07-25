@@ -1,0 +1,45 @@
+.services
+    display: grid
+    grid-template-columns: repeat(3,1fr)
+    grid-template-rows: repeat(2,1fr)
+    grid-column-gap: 30px
+    grid-row-gap: 29px
+
+    &__container
+        max-width: 1320px
+        margin: 0 auto
+        margin-bottom: 90px
+
+    &__card
+        position: relative
+        //  grid-area: row-start / col-start / row-end / col-end;
+        &:nth-child(1)
+            grid-area: 1/1/2/2
+        &:nth-child(2)
+            grid-area: 2/1/3/2
+        &:nth-child(3)
+            grid-area: 1/2/3/3
+        &:nth-child(4)
+            grid-area: 1/3/3/4
+
+        & > img
+            border-radius: 15px
+
+    &__form
+        position: absolute
+        inset-inline: 13px
+        bottom: 13px
+        background: #fffc
+        border-radius: 8px
+        padding: 17px 14px 14px
+
+    &__title
+        margin-bottom: 17px
+
+    &__controls
+        display: flex
+        justify-content: space-between
+
+    &__details
+        background: #01688C
+        color: #fff

@@ -9,7 +9,7 @@
         "build:old": "webpack --config ./config/webpack.build.config.js",
         "clean": "rd /s /q dist",
         "start": "serve ./dist",
-        "dev": "gulp browserSync",
+        "dev": "gulp & gulp browserSync",
         "build": "gulp"
     },
     "keywords": [],
