@@ -13,7 +13,7 @@ function start() {
     new Splide("#splideReview", {
         type: "loop",
         perPage: 2,
-        // gap: "114px",
+        gap: "6.197917vw",
         arrowPath: " ",
     }).mount();
     new Splide("#splideTiser", {
