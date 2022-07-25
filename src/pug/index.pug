@@ -1,7 +1,11 @@
 extends ./layouts/layout.pug
     
 block main
+    section.specialists__container 
+        include ./blocks/index/specialists.pug
     section.betifits__container 
         include ./blocks/index/benefits.pug
     section.reviews__container 
         include ./blocks/index/reviews.pug
+    section.about__container 
+        include ./blocks/index/about.pug

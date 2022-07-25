@@ -1,0 +1,7 @@
+.about 
+    .about__content
+        h2.about__title= about.title
+        each i in about.text 
+            p.about__text= i 
+        button.about__button Подробнее
+    img.about__img(src=about.img alt="о компании")
