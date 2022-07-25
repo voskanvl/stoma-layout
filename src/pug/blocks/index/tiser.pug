@@ -2,7 +2,7 @@
     article#splideTiser.splide
         .splide__track
             ul.splide__list
-                each i in [1,2,3,4]
+                each i in Array(4).fill(null).map((_,i)=>i)
                     li.splide__slide 
                         .tiser__wrapper
                             .tiser__block

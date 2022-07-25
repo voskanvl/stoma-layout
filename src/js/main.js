@@ -1,17 +1,19 @@
 import Splide from "@splidejs/splide";
 
-if (document.readyState === "loading") {
-    start();
-} else {
-    document.addEventListener("DOMContentLoaded", start);
-}
+// if (document.readyState === "loading") {
+//     start();
+// } else {
+//     document.addEventListener("DOMContentLoaded", start);
+// }
+
+window.onload = start;
 
 function start() {
     console.log("start");
     new Splide("#splideReview", {
         type: "loop",
         perPage: 2,
-        gap: "114px",
+        // gap: "114px",
         arrowPath: " ",
     }).mount();
     new Splide("#splideTiser", {
