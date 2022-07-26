@@ -1,0 +1,24 @@
+include ../../mixins/svg.pug
+.map 
+    #map
+   
+    script(src="https://api-maps.yandex.ru/2.1/?apikey=9b27ecf5-fac6-419d-b8f5-184a9818db91&lang=ru_RU" type="text/javascript")
+    //- div(style="position:relative;overflow:hidden;")
+    //-     a(href="https://yandex.ru/maps/49/penza/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;") Пенза
+    //-         a(href="https://yandex.ru/maps/49/penza/house/ulitsa_austrina_50/YEwYdgZhT0UCQFtpfX5ycXlqYQ==/?ll=45.011605%2C53.330595&utm_medium=mapframe&utm_source=maps&z=17.15" style="color:#eee;font-size:12px;position:absolute;top:14px;") Улица Аустрина, 50 — Яндекс Карты
+    //-         iframe(src="https://yandex.ru/map-widget/v1/-/CCURIGDJtD" width="100%" height="727" frameborder="1" allowfullscreen="true" style="position:relative;")
+            
+    .map__panel 
+        h2.map__title КОНТАКТЫ
+            .map__item 
+                .map__svg 
+                    +svg("","location")
+                .map__address= common.address
+            .map__item 
+                .map__svg 
+                    +svg("","phone")
+                .map__phone= common.phone
+            .map__item 
+                .map__svg 
+                    +svg("","email")
+                .map__phone= common.email
