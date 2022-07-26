@@ -80,4 +80,11 @@ function start() {
         gap: "0px",
         fixedHeight: "100px",
     }).mount();
+
+    //--- toggle menu ---
+    const menuOn = document.querySelector(".header__openmenu");
+    const menuOff = document.querySelector(".menu__close-svg");
+    const menuContainer = document.querySelector(".menu__container");
+    menuOn.onclick = () => (menuContainer.style = "display:block");
+    menuOff.onclick = () => (menuContainer.style = "display:none");
 }
