@@ -74,11 +74,13 @@ function start() {
     new Splide("#splideTiser", {
         perPage: 1,
         rewind: false,
+        arrowPath: " ",
     }).mount();
     new Splide("#splideServicesSlider", {
         type: "loop",
         gap: "0px",
         fixedHeight: "100px",
+        arrowPath: " ",
     }).mount();
 
     //--- toggle menu ---
