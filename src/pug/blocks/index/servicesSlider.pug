@@ -1,0 +1,14 @@
+.servicesSlider
+    article#splideServicesSlider.splide
+        .splide__track
+            ul.splide__list
+                each i in services
+                    //- p welcome
+                    li.splide__slide 
+                        .services__card
+                            img(src=i.img alt=i.name)
+                            .services__form 
+                                .services__title=i.name 
+                                .services__controls 
+                                    button.services__details Подробнее
+                                    button.services__book Записаться

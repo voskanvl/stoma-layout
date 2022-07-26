@@ -68,11 +68,16 @@ function start() {
     new Splide("#splideReview", {
         type: "loop",
         gap: "3vw",
-        fixedWidth: "clamp(370px,48vw, 603px",
+        fixedWidth: "clamp(370px,48vw, 603px)",
         arrowPath: " ",
     }).mount();
     new Splide("#splideTiser", {
         perPage: 1,
         rewind: false,
+    }).mount();
+    new Splide("#splideServicesSlider", {
+        type: "loop",
+        gap: "0px",
+        fixedHeight: "100px",
     }).mount();
 }
