@@ -3,7 +3,7 @@ include ../mixins/svg
 
 .footer__container 
     .footer 
-        header.footer__logo 
+        a.footer__logo(href="/") 
             img(src="../../assets/images/logo/logoWhite.png" alt="logo")
         main.footer__nav 
             ul.footer__menu 
@@ -15,15 +15,15 @@ include ../mixins/svg
                         li.footer__item 
                             a.footer__link(href=i.href)= i.name
         footer.footer__contacts 
-            .footer__address
+            a.footer__address(href="#")
                 .footer__icon  
                     +svg("","location-white")
                 p= common.address
-            .footer__phone
+            a.footer__phone(href="tel:"+ common.phone)
                 .footer__icon 
                     +svg("","phone-white")
                 p= common.phone
-            .footer__email
+            a.footer__email(href="mailto:"+ common.email)
                 .footer__icon 
                     +svg("","email-white")
                 p= common.email

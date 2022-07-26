@@ -10,15 +10,15 @@ include ../../mixins/svg.pug
             
     .map__panel 
         h2.map__title КОНТАКТЫ
-            .map__item 
-                .map__svg 
-                    +svg("","location")
-                .map__address= common.address
-            .map__item 
-                .map__svg 
-                    +svg("","phone")
-                .map__phone= common.phone
-            .map__item 
-                .map__svg 
-                    +svg("","email")
-                .map__phone= common.email
+        .map__item 
+            .map__svg 
+                +svg("","location")
+            .map__address= common.address
+        .map__item 
+            .map__svg 
+                +svg("","phone")
+            .map__phone= common.phone
+        .map__item 
+            .map__svg 
+                +svg("","email")
+            .map__phone= common.email

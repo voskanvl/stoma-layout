@@ -54,6 +54,7 @@ function init() {
             },
         ),
     );
+    stomaYM.behaviors.disable("scrollZoom");
 }
 
 window.onload = start;
