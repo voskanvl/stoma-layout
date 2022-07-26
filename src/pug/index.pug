@@ -1,6 +1,8 @@
 extends ./layouts/layout.pug
     
 block main
+    section.modal__container
+        include ./blocks/index/modal.pug
     section.tiser__container 
         include ./blocks/index/tiser.pug
     section.benefits__container 
@@ -17,4 +19,6 @@ block main
         include ./blocks/index/about.pug
     section.map__container 
         include ./blocks/index/map.pug
+
+
 
