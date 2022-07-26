@@ -8,8 +8,12 @@ const webpack = require("webpack-stream")
 const sourcemaps = require("gulp-sourcemaps")
 const browserSync = require("browser-sync").create()
 const fs = require("fs/promises")
+const { readFileSync } = require("fs")
 const path = require("path")
 const svgSprite = require("gulp-svg-sprite")
+const through2 = require("through2")
+// const gutil = require("gulp-util")
+const Vinyl = require("vinyl")
 
 const clean = path => cb => {
     del([path])
@@ -68,6 +72,38 @@ const pugTask = async () => {
                 locals: dataFromFiles || {},
             }),
         )
+        .pipe(
+            through2.obj(function (file, _, cb) {
+                this.push(file)
+                console.log("🚀 ~ file", file.base, file.history)
+                const iterator = file.contents
+                    .toString()
+                    .matchAll(/(?<=<img).*(src="(.*?)").*(?=>)/g)
+                let files = [...iterator].map(e => e[2])
+                for (let i of files) {
+                    const pathImg = path.resolve(file.history[1], i)
+                    console.log("🚀 ~ pathImg", pathImg)
+                    const data = readFileSync(pathImg)
+                    console.log("paths >>", {
+                        base: file.base,
+                        cwd: file.cwd,
+                        path: file.path,
+                    })
+                    this.push(
+                        new Vinyl({
+                            base: file.base,
+                            cwd: file.cwd,
+                            path: path.resolve(
+                                file.base,
+                                "." + pathImg.split("src")[1],
+                            ),
+                            contents: data,
+                        }),
+                    )
+                }
+                // this.push(file)
+            }),
+        )
         .pipe(dest("./dist"))
 }
 
@@ -106,6 +142,8 @@ const watchTask = () => {
 }
 
 exports.js = jsTask
+
+exports.pug = pugTask
 
 exports.watch = watchTask
 
