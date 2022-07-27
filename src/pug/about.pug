@@ -1,0 +1,19 @@
+extends ./layouts/layout.pug
+    
+block main
+    .aboutPage__container
+        .aboutPage
+            p.aboutPage__breads.breads 
+                    a(href="/") главная
+                    span /о клинике
+            main.aboutPage__main 
+                .aboutPage__text 
+                    each i in aboutPage
+                        p.aboutPage__item= i
+                .aboutPage__carousel 
+                     article#splideAboutSlider.splide
+                        .splide__track
+                            ul.splide__list
+                                each i in [1,2,3]
+                                    li.splide__slide 
+                                        img(src="../../assets/images/main/chair.png" alt="about")
