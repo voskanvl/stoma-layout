@@ -22,8 +22,10 @@ const clean = path => cb => {
 
 const sync = () =>
     browserSync.init({
+        watch: true,
         server: {
-            baseDir: "dist",
+            baseDir: "./dist",
+            index: "specialists.html",
         },
         ui: {
             port: 8080,
@@ -72,20 +74,19 @@ const pugTask = async () => {
                 locals: dataFromFiles || {},
             }),
         )
-        .pipe(dest("./dist"))
         .pipe(
             through2.obj(function (file, _, cb) {
-                console.log("🚀 ~ file", file);
+                console.log("🚀 ~ file", file.path);
                 const iterator = file.contents
                     .toString()
                     .matchAll(/(?<=<img).*(src="(.*?)").*(?=>)/g);
                 let files = [...iterator].map(e => e[2]);
                 for (let i of files) {
-                    console.log("paths >>", {
-                        base: file.base,
-                        cwd: file.cwd,
-                        path: file.path,
-                    });
+                    // console.log("paths >>", {
+                    //     base: file.base,
+                    //     cwd: file.cwd,
+                    //     path: file.path,
+                    // });
                     const pathImg = path.resolve(
                         file.history[file.history.length - 2],
                         i,
@@ -143,6 +144,8 @@ const watchTask = () => {
         series(clean("./dist/*.svg"), svgSpriteTask),
     ).on("change", browserSync.reload);
 };
+
+exports.sync = sync;
 
 exports.js = jsTask;
 
