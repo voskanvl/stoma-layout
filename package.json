@@ -10,7 +10,9 @@
         "clean": "rd /s /q dist",
         "start": "serve ./dist",
         "dev": "gulp & gulp browserSync",
-        "build": "gulp"
+        "build": "gulp",
+        "watch": "gulp watch",
+        "live": "gulp live"
     },
     "keywords": [],
     "author": "",
