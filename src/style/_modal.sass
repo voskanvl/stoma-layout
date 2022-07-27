@@ -54,11 +54,17 @@
         column-gap: 8px
         user-select: none
         margin-bottom: 33px
+        & > label
+            margin-left: 30px
 
     &__agree
         z-index: 2
         opacity: 0
         cursor: pointer
+        position: absolute
+        top: 0
+        left: 0
+        inset: 0
         &:checked ~ .modal__plug
             background: #01688C
 

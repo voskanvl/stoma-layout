@@ -5,6 +5,6 @@
         { "name": "Цены", "href": "/" },
         { "name": "Cпециалисты", "href": "/specialists.html" },
         { "name": "Контролирующие органы", "href": "/" },
-        { "name": "Контакты", "href": "/" }
+        { "name": "Контакты", "href": "/about.html" }
     ]
 }
