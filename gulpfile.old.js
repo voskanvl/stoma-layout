@@ -14,24 +14,23 @@ const svgSprite = require("gulp-svg-sprite");
 const through2 = require("through2");
 // const gutil = require("gulp-util")
 const Vinyl = require("vinyl");
-const liveServer = require("live-server");
 
 const clean = path => cb => {
     del([path]);
     cb();
 };
 
-// const sync = () =>
-//     browserSync.init({
-//         watch: true,
-//         server: {
-//             baseDir: "./dist",
-//             index: "about.html",
-//         },
-//         ui: {
-//             port: 8080,
-//         },
-//     });
+const sync = () =>
+    browserSync.init({
+        watch: true,
+        server: {
+            baseDir: "./dist",
+            index: "about.html",
+        },
+        ui: {
+            port: 8080,
+        },
+    });
 
 const svgSpriteTask = cb =>
     src("./src/assets/svg/**/*.svg")
@@ -120,18 +119,33 @@ const sassTask = cb =>
         .pipe(dest("./dist"));
 
 const watchTask = () => {
-    watch("./src/js/main.js", series(clean("./dist/main.js"), jsTask));
-    watch("./src/components/**/*", series(clean("./dist/*.html"), pugTask));
-    watch("./src/pug/**/*.pug", series(clean("./dist/*.html"), pugTask));
-    watch("./src/**/*.sass", series(clean("./dist/*.css"), sassTask));
-    watch("./src/data/**/*.json", series(clean("./dist/*.html"), pugTask));
+    watch("./src/js/main.js", series(clean("./dist/main.js"), jsTask)).on(
+        "change",
+        browserSync.reload,
+    );
+    watch("./src/components/**/*", series(clean("./dist/*.html"), pugTask)).on(
+        "change",
+        browserSync.reload,
+    );
+    watch("./src/pug/**/*.pug", series(clean("./dist/*.html"), pugTask)).on(
+        "change",
+        browserSync.reload,
+    );
+    watch("./src/**/*.sass", series(clean("./dist/*.css"), sassTask)).on(
+        "change",
+        browserSync.reload,
+    );
+    watch("./src/data/**/*.json", series(clean("./dist/*.html"), pugTask)).on(
+        "change",
+        browserSync.reload,
+    );
     watch(
         "./src/assets/svg/**/*.svg",
         series(clean("./dist/*.svg"), svgSpriteTask),
-    );
+    ).on("change", browserSync.reload);
 };
 
-// exports.sync = sync;
+exports.sync = sync;
 
 exports.js = jsTask;
 
@@ -143,8 +157,7 @@ exports.sprite = svgSpriteTask;
 
 exports.watch = watchTask;
 
-// exports.browserSync = parallel(sync, watchTask);
-exports.live = parallel(() => liveServer.start({ root: "./dist" }), watchTask);
+exports.browserSync = parallel(sync, watchTask);
 
 const defaultTask = parallel(
     series(clean("./dist/main.js"), jsTask),
