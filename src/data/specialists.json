@@ -6,32 +6,32 @@
             {
                 "name": "Новикова Юлия Владимировна",
                 "post": "Медицинская сестра",
-                "img": ""
-            },
-            {
-                "name": "Дуриченко Евгения Петровна",
-                "post": "врач-стоматолог терапевт",
-                "img": ""
-            },
-            {
-                "name": "Филиппова-Попко Ольга Владимировна",
-                "post": "врач-стоматолог терапевт",
-                "img": ""
+                "img": "../../assets/images/specialists/novikova.png"
             },
             {
                 "name": "Давыдов Алексей Владимирович",
                 "post": "врач-стоматолог терапевт",
-                "img": ""
+                "img": "../../assets/images/specialists/Davydov.png"
+            },
+            {
+                "name": "Дуриченко Евгения Петровна",
+                "post": "врач-стоматолог терапевт",
+                "img": "../../assets/images/specialists/Durichenko.png"
             },
             {
                 "name": "Майорова Мария Викторовна",
                 "post": "врач-стоматолог терапевт",
-                "img": ""
+                "img": "../../assets/images/specialists/Mayorova.png"
+            },
+            {
+                "name": "Филиппова-Попко Ольга Владимировна",
+                "post": "врач-стоматолог терапевт",
+                "img": "../../assets/images/specialists/Philippova.png"
             },
             {
                 "name": "Архипова Нина Алексеевна",
                 "post": "врач-стоматолог терапевт",
-                "img": ""
+                "img": "../../assets/images/specialists/blank.png"
             }
         ]
     }

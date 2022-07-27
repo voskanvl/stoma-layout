@@ -20,7 +20,7 @@ function init() {
         // от 0 (весь мир) до 19.
         zoom: 17,
     });
-    const stomaGeoObject = new ymaps.GeoObject(
+    new ymaps.GeoObject(
         {
             // Описание геометрии.
             geometry: {

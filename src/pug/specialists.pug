@@ -1,0 +1,16 @@
+extends ./layouts/layout.pug
+    
+block main
+    section.specialistsPage__container
+        .specialistsPage
+            p.specialistsPage__breads 
+                a(href="/") главная
+                span /специалисты
+            ul.specialistsPage__list
+                each i in specialists.staff
+                    li.specialistsPage__item
+                        .specialistsPage__img
+                            img(src=i.img, alt="coworker")
+                        .specialistsPage__content
+                            h2.specialistsPage__post= i.post
+                            .specialistsPage__name= i.name
