@@ -3,6 +3,6 @@ include ../../mixins/svg.pug
 ul.benefits 
     each i in benefits 
         li.benefits__item 
-            .benefits__svg 
+            .benefits__svg(style=`width:${i.width}; height:${i.height}`) 
                 +svg("",i.svg)
             .benefits__title= i.title

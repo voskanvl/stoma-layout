@@ -1,14 +1,28 @@
 {
     "benefits": [
-        { "svg": "benefits--responsibility", "title": "ответственность" },
+        {
+            "svg": "benefits--responsibility",
+            "width": 124,
+            "height": 124,
+            "title": "ответственность"
+        },
         {
             "svg": "benefits--perfectionism",
+            "width": 100,
+            "height": 100,
             "title": "Стремление к совершенству"
         },
         {
             "svg": "benefits--individual_approach",
+            "width": 81,
+            "height": 87,
             "title": "Индивидуальный подход"
         },
-        { "svg": "benefits--affordable_prices", "title": "Доступные цены" }
+        {
+            "svg": "benefits--affordable_prices",
+            "width": 89,
+            "height": 89,
+            "title": "Доступные цены"
+        }
     ]
 }
