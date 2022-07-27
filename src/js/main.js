@@ -89,4 +89,14 @@ function start() {
     const menuContainer = document.querySelector(".menu__container");
     menuOn.onclick = () => (menuContainer.style = "display:block");
     menuOff.onclick = () => (menuContainer.style = "display:none");
+    //--- toggle modal ---
+    const buttons = document.querySelectorAll(".modalable");
+    const modal = document.querySelector(".modal__container");
+    const close = document.querySelector(".modal__close");
+    buttons.forEach(button =>
+        button.addEventListener("click", () => modal.removeAttribute("hidden")),
+    );
+    close.addEventListener("click", () =>
+        modal.setAttribute("hidden", "hidden"),
+    );
 }
