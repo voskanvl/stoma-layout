@@ -37,6 +37,7 @@
         "html-webpack-plugin": "^5.5.0",
         "imagemin-webpack-plugin": "^2.4.2",
         "install": "^0.13.0",
+        "live-server": "^1.2.2",
         "media-query-plugin": "^1.5.0",
         "mini-css-extract-plugin": "^2.6.0",
         "npm": "^8.12.1",

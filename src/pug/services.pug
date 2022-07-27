@@ -1,0 +1,16 @@
+extends ./layouts/layout.pug
+    
+block main
+    .servicesPage__container
+        .servicesPage
+            p.servicesPage__breads.breads 
+                    a(href="/") главная
+                    span /специалисты
+            each i in servicesPage
+                .servicesPage__title= i.title 
+                .servicesPage__text 
+                        if i.text.html
+                            p!= i.text.html
+                        if i.text.p
+                            each p in i.text.p 
+                                p= p

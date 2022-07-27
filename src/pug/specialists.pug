@@ -3,9 +3,9 @@ extends ./layouts/layout.pug
 block main
     section.specialistsPage__container
         .specialistsPage
-            p.specialistsPage__breads 
+            p.specialistsPage__breads.breads 
                 a(href="/") главная
-                span /специалисты
+                span /услуги стоматологии
             ul.specialistsPage__list
                 each i in specialists.staff
                     li.specialistsPage__item
