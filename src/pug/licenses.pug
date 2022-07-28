@@ -1,11 +1,12 @@
 extends ./layouts/layout.pug
     
 block main
-    .modalLicense 
-        .modalLicense__main 
-            .modalLicense__close закрыть 
-            .modalLicense__body
-                img.modalLicense__img 
+    .modalLicense__container(hidden)
+        .modalLicense 
+                .modalLicense__close закрыть 
+                .modalLicense__body
+                    img.modalLicense__img 
+                a.modalLicense__download(href="" download="download") Скачать
 
     .licenses__container
         .licenses
