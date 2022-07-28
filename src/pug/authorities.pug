@@ -1,0 +1,15 @@
+extends ./layouts/layout.pug
+    
+block main
+    .authorities__container
+        .authorities
+            p.authorities__breads.breads 
+                    a(href="/") главная
+                    span /о клинике
+            .authorities__body 
+                each i in authorities
+                    .authorities__item
+                        a.authorities__href(href=i.href) 
+                        .authorities__name= i.name 
+                        .authorities__address Адрес: #{i.address} 
+                        .authorities__phone Tелефон: #{i.phone} 
