@@ -5,8 +5,14 @@
     padding: 0 1rem
 
     &__body
-        display: flex
-        column-gap: 31px
+        // display: flex
+        // column-gap: 31px
+        // row-gap: 16px
+        // flex-wrap: wrap
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+        grid-column-gap: 31px
+        grid-row-gap: 31px
 
     &__item
         position: relative
@@ -17,3 +23,9 @@
         left: 0
         top: 0
         inset: 0
+
+    &__name
+        font-weight: bold
+        border-bottom: 1px solid #eee
+        padding-bottom: 0.5em
+        margin-bottom: 0.5em
