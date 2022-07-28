@@ -83,5 +83,16 @@ function start() {
             phone: new Inputmask("+7(999) 999-99-99"),
             text: new Inputmask({ regex: "[a-zA-Zа-яёА-ЯЁ0-9]{1,}" }),
         });
+        validate.data.submit[0].addEventListener("click", ev => {
+            ev.preventDefault();
+            if (validate.valid) {
+                fetch("/mail.php", {
+                    method: "POST",
+                    body: new FormData(modalForm),
+                });
+            } else {
+                [...modalForm.elements].forEach(e => e.reportValidity());
+            }
+        });
     }
 }

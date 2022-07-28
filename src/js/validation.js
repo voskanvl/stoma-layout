@@ -19,6 +19,9 @@ export function Validation(form) {
     group.checkbox = required.filter(
         el => el.getAttribute("type") === "checkbox",
     );
+    group.submit = [...formElement.elements].filter(
+        el => el.getAttribute("type") === "submit",
+    );
 
     const isValid = () => formElement.checkValidity();
 
@@ -35,6 +38,7 @@ export function Validation(form) {
             text: group.text,
             email: group.email,
             checkbox: group.checkbox,
+            submit: group.submit,
         },
         addMask({ phone, text, email, checkbox }) {
             if (phone) add("phone", phone);
