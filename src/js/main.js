@@ -16,7 +16,7 @@ window.onload = start;
 
 function start() {
     console.log("start");
-    startLicense();
+    if (document.querySelector(".modalLicense__container")) startLicense();
     try {
         ymaps.ready(init);
         function init() {
