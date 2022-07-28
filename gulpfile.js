@@ -16,7 +16,7 @@ const through2 = require("through2");
 const Vinyl = require("vinyl");
 const liveServer = require("live-server");
 
-const injectJSON = () => {
+const injectJSON = async () => {
     let dataFromFiles = await fs.readdir("./src/data");
     dataFromFiles = await dataFromFiles
         .filter(file => file.split(".").pop() === "json")
@@ -70,12 +70,12 @@ const jsTask = cb =>
         .pipe(dest("./dist"));
 
 const pugTask = async () => {
-
+    const json = await injectJSON() 
     src("./src/pug/*.pug")
         .pipe(
             pug({
                 pretty: true,
-                locals: injectJSON() || {},
+                locals: json || {},
             }),
         )
         .pipe(
