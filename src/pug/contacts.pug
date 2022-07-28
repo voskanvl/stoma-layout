@@ -1,0 +1,23 @@
+extends ./layouts/layout.pug
+    
+block main
+    .contacts__container
+        .contacts
+            p.contacts__breads.breads 
+                    a(href="/") главная
+                    span /контакты
+            main.contacts__main 
+                .contacts__left
+                    ul.contacts__list
+                        li.contacts__item
+                            +svg("menu__svg","location")
+                            a(href= "tel:"+common.address)= common.address
+                        li.contacts__item
+                            +svg("menu__svg","phone")
+                            a(href= "tel:"+common.phone)= common.phone
+                        li.contacts__item
+                            +svg("menu__svg","email")
+                            a(href= "mailto:"+common.email)= common.email
+                .contacts__right
+                    #map
+    script(src="https://api-maps.yandex.ru/2.1/?apikey=9b27ecf5-fac6-419d-b8f5-184a9818db91&lang=ru_RU" type="text/javascript")

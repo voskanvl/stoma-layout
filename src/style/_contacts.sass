@@ -1,0 +1,20 @@
+.contacts
+
+    &__container
+        max-width: 1320px
+        margin: 0 auto
+        margin-bottom: 152px
+        padding: 0 1rem
+
+    &__main
+        display: grid
+        grid-template-columns: 1fr 2fr
+        @media screen and ( max-width: 1024px )
+            grid-template-columns: 1fr
+
+    &__item
+        display: flex
+        align-items: center
+        column-gap: 15px
+        font-size: clamp(15px,0.78125vw,25px)
+        margin-bottom: 33px

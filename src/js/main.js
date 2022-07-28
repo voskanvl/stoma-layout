@@ -1,5 +1,6 @@
 import Splide from "@splidejs/splide";
 import { startLicense } from "./modalLicense";
+import { YM } from "./YM";
 
 // if (document.readyState === "loading") {
 //     start();
@@ -17,59 +18,8 @@ window.onload = start;
 function start() {
     console.log("start");
     if (document.querySelector(".modalLicense__container")) startLicense();
-    try {
-        ymaps.ready(init);
-        function init() {
-            // Создание карты.
-            const stomaYM = new ymaps.Map("map", {
-                // Координаты центра карты.
-                // Порядок по умолчанию: «широта, долгота».
-                // Чтобы не определять координаты центра карты вручную,
-                // воспользуйтесь инструментом Определение координат.
-                center: [53.231595, 45.014605],
-                // Уровень масштабирования. Допустимые значения:
-                // от 0 (весь мир) до 19.
-                zoom: 17,
-            });
-            new ymaps.GeoObject(
-                {
-                    // Описание геометрии.
-                    geometry: {
-                        type: "Point",
-                        coordinates: [53.230595, 45.011605],
-                    },
-                    // Свойства.
-                    properties: {
-                        // Контент метки.
-                        iconContent: "Стом-А",
-                        hintContent: '"Стом-А"стоматололгия ',
-                    },
-                },
-                {
-                    // Опции.
-                    // Иконка метки будет растягиваться под размер ее содержимого.
-                    preset: "islands#blackStretchyIcon",
-                    // Метку можно перемещать.
-                    draggable: false,
-                },
-            );
-            stomaYM.geoObjects.add(
-                new ymaps.Placemark(
-                    [53.230595, 45.012605],
-                    {
-                        balloonContent: "цвет <strong>красный</strong>",
-                        iconCaption: "Стом-А",
-                    },
-                    {
-                        preset: "islands#redDotIcon",
-                    },
-                ),
-            );
-            stomaYM.behaviors.disable("scrollZoom");
-        }
-    } catch (error) {
-        console.warn("ошибка в Yandex map", error);
-    }
+    if (location.pathname === "/" || location.pathname === "/contacts.html")
+        YM();
 
     if (document.querySelector("#splideReview"))
         new Splide("#splideReview", {

@@ -2,9 +2,9 @@
     "menu": [
         { "name": "Главная", "href": "/" },
         { "name": "Услуги стоматологии", "href": "/services.html" },
-        { "name": "Цены", "href": "/" },
+        { "name": "Цены", "href": "/price.html" },
         { "name": "Cпециалисты", "href": "/specialists.html" },
         { "name": "Контролирующие органы", "href": "/authorities.html" },
-        { "name": "Контакты", "href": "/about.html" }
+        { "name": "Контакты", "href": "/contacts.html" }
     ]
 }
