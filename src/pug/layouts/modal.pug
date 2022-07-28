@@ -2,10 +2,10 @@
     .modal__body 
         .modal__close Закрыть
         form.modal__form 
-            input.modal__input.modal__name(type="text" placeholder="Имя" name="name")
-            input.modal__input.modal__phone(type="tel" placeholder="Телефон" name="phone")
+            input.modal__input.modal__name(type="text" placeholder="Имя" name="name" required)
+            input.modal__input.modal__phone(type="tel" placeholder="Телефон" name="phone" required)
             .modal__check
-                input.modal__input.modal__agree(type="checkbox" name="agree")
+                input.modal__input.modal__agree(type="checkbox" name="agree" required)
                 .modal__plug
                 label Я согласен на обработку моих персональных данных 
             button.modal__submit Отправить
