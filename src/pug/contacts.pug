@@ -11,7 +11,7 @@ block main
                     ul.contacts__list
                         li.contacts__item
                             +svg("menu__svg","location")
-                            a(href= "tel:"+common.address)= common.address
+                            span= common.address
                         li.contacts__item
                             +svg("menu__svg","phone")
                             a(href= "tel:"+common.phone)= common.phone
