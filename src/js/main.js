@@ -1,6 +1,8 @@
 import Splide from "@splidejs/splide";
 import { startLicense } from "./modalLicense";
 import { YM } from "./YM";
+import { Validation } from "./validation";
+import Inputmask from "inputmask";
 
 // if (document.readyState === "loading") {
 //     start();
@@ -71,4 +73,15 @@ function start() {
             location.pathname = "/services.html";
         });
     });
+    //--- Validation
+    const modalForm = document.querySelector(".modal__form");
+    if (modalForm) {
+        const validate = Validation(modalForm);
+        console.log(validate.valid);
+        console.log(validate.data);
+        validate.addMask({
+            phone: new Inputmask("+7(999) 999-99-99"),
+            text: new Inputmask({ regex: "[a-zA-Zа-яёА-ЯЁ0-9]{1,}" }),
+        });
+    }
 }
