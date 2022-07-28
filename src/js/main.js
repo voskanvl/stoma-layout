@@ -18,8 +18,7 @@ window.onload = start;
 function start() {
     console.log("start");
     if (document.querySelector(".modalLicense__container")) startLicense();
-    if (location.pathname === "/" || location.pathname === "/contacts.html")
-        YM();
+    if (location.pathname === "/" || location.pathname === "/contacts") YM();
 
     if (document.querySelector("#splideReview"))
         new Splide("#splideReview", {
@@ -65,4 +64,11 @@ function start() {
         close.addEventListener("click", () =>
             modal.setAttribute("hidden", "hidden"),
         );
+    //--- redirect to services ---
+    const details = document.querySelectorAll(".services__details");
+    details.forEach(el => {
+        el.addEventListener("click", () => {
+            location.pathname = "/services.html";
+        });
+    });
 }

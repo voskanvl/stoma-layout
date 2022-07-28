@@ -14,6 +14,6 @@
                 { "name": "Лицензии", "href": "/licenses.html" }
             ]
         },
-        { "name": "Контакты", "href": "/" }
+        { "name": "Контакты", "href": "/contacts.html" }
     ]
 }
