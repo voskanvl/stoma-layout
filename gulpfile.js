@@ -16,6 +16,18 @@ const through2 = require("through2");
 const Vinyl = require("vinyl");
 const liveServer = require("live-server");
 
+const injectJSON = () => {
+    let dataFromFiles = await fs.readdir("./src/data");
+    dataFromFiles = await dataFromFiles
+        .filter(file => file.split(".").pop() === "json")
+        .map(async file => {
+            const raw = await fs.readFile(path.resolve("./src/data", file));
+            return JSON.parse(raw);
+        });
+    dataFromFiles = await Promise.all(dataFromFiles);
+    return dataFromFiles.reduce((acc, e) => ({ ...acc, ...e }), {});
+}
+
 const clean = path => cb => {
     del([path]);
     cb();
@@ -58,21 +70,12 @@ const jsTask = cb =>
         .pipe(dest("./dist"));
 
 const pugTask = async () => {
-    let dataFromFiles = await fs.readdir("./src/data");
-    dataFromFiles = await dataFromFiles
-        .filter(file => file.split(".").pop() === "json")
-        .map(async file => {
-            const raw = await fs.readFile(path.resolve("./src/data", file));
-            return JSON.parse(raw);
-        });
-    dataFromFiles = await Promise.all(dataFromFiles);
-    dataFromFiles = dataFromFiles.reduce((acc, e) => ({ ...acc, ...e }), {});
 
     src("./src/pug/*.pug")
         .pipe(
             pug({
                 pretty: true,
-                locals: dataFromFiles || {},
+                locals: injectJSON() || {},
             }),
         )
         .pipe(
@@ -83,11 +86,6 @@ const pugTask = async () => {
                     .matchAll(/(?<=<img).*(src="(.*?)").*(?=>)/g);
                 let files = [...iterator].map(e => e[2]);
                 for (let i of files) {
-                    // console.log("paths >>", {
-                    //     base: file.base,
-                    //     cwd: file.cwd,
-                    //     path: file.path,
-                    // });
                     const pathImg = path.resolve(
                         file.history[file.history.length - 2],
                         i,
@@ -99,14 +97,13 @@ const pugTask = async () => {
                             cwd: file.cwd,
                             path: path.resolve(
                                 file.base,
-                                "." + pathImg.split("src")[1],
+                                "." + pathImg.split("src")[1],//не нравиттся, найти способ получить разницу в пути между источником и целью
                             ),
                             contents: data,
                         }),
                     );
                 }
                 cb(null, file);
-                // this.push(file)
             }),
         )
         .pipe(dest("./dist"));
