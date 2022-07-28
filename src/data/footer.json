@@ -1,7 +1,7 @@
 {
     "footer": [
         { "name": "Услуги стоматологии", "href": "/services.html" },
-        { "name": "Цены", "href": "/" },
+        { "name": "Цены", "href": "/price.html" },
         { "name": "Cпециалисты", "href": "/specialists.html" },
         { "name": "Контролирующие органы", "href": "/" },
         {
@@ -9,7 +9,7 @@
             "submenu": [
                 {
                     "name": "Ведомость результатов проведения специальной оценки условий труда",
-                    "href": "/"
+                    "href": "/docs.html"
                 },
                 { "name": "Лицензии", "href": "/licenses.html" }
             ]

@@ -1,0 +1,13 @@
+extends ./layouts/layout.pug
+include ./mixins/svg.pug
+    
+block main
+    .docs__container
+        .docs
+            p.docs__breads.breads 
+                    a(href="/") главная
+                    span /документы
+            main.docs__main 
+                .docs__row
+                    +svg("docs__svg","doc")
+                    a(href="#" download="download") ПРАЙС-16.03.2022

@@ -12,7 +12,7 @@
         "dev": "gulp & gulp browserSync",
         "build": "gulp",
         "watch": "gulp watch",
-        "live": "gulp live"
+        "live": "gulp & gulp live"
     },
     "keywords": [],
     "author": "",
