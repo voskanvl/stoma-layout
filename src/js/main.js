@@ -1,8 +1,8 @@
-import Splide from "@splidejs/splide";
-import { startLicense } from "./modalLicense";
-import { YM } from "./YM";
-import { Validation } from "./validation";
-import Inputmask from "inputmask";
+import Splide from "@splidejs/splide"
+import { startLicense } from "./modalLicense"
+import { YM } from "./YM"
+import { Validation } from "./validation"
+import Inputmask from "inputmask"
 
 // if (document.readyState === "loading") {
 //     start();
@@ -12,15 +12,16 @@ import Inputmask from "inputmask";
 
 //--- YM ---
 
-window.onload = start;
+window.onload = start
 // window.onresize = () => {
 //     stomaYM.getGlobalPixelCenter([53.230595, 45.011605]);
 // };
 
 function start() {
-    console.log("start");
-    if (document.querySelector(".modalLicense__container")) startLicense();
-    if (location.pathname === "/" || location.pathname === "/contacts") YM();
+    console.log("start")
+    if (document.querySelector(".modalLicense__container")) startLicense()
+    if (location.pathname === "/" || location.pathname === "/contacts.html")
+        YM()
 
     if (document.querySelector("#splideReview"))
         new Splide("#splideReview", {
@@ -28,71 +29,71 @@ function start() {
             gap: "3vw",
             fixedWidth: "clamp(370px,48vw, 603px)",
             arrowPath: " ",
-        }).mount();
+        }).mount()
     if (document.querySelector("#splideTiser"))
         new Splide("#splideTiser", {
             perPage: 1,
             rewind: false,
             arrowPath: " ",
-        }).mount();
+        }).mount()
     if (document.querySelector("#splideServicesSlider"))
         new Splide("#splideServicesSlider", {
             type: "loop",
             gap: "0px",
             fixedHeight: "100px",
             arrowPath: " ",
-        }).mount();
+        }).mount()
     if (document.querySelector("#splideAboutSlider"))
         new Splide("#splideAboutSlider", {
             type: "loop",
             gap: "0px",
             arrowPath: " ",
-        }).mount();
+        }).mount()
 
     //--- toggle menu ---
-    const menuOn = document.querySelector(".header__openmenu");
-    const menuOff = document.querySelector(".menu__close-svg");
-    const menuContainer = document.querySelector(".menu__container");
-    menuOn.onclick = () => (menuContainer.style = "display:block");
-    menuOff.onclick = () => (menuContainer.style = "display:none");
+    const menuOn = document.querySelector(".header__openmenu")
+    const menuOff = document.querySelector(".menu__close-svg")
+    const menuContainer = document.querySelector(".menu__container")
+    menuOn.onclick = () => (menuContainer.style = "display:block")
+    menuOff.onclick = () => (menuContainer.style = "display:none")
     //--- toggle modal ---
-    const buttons = document.querySelectorAll(".modalable");
-    const modal = document.querySelector(".modal__container");
-    const close = document.querySelector(".modal__close");
+    const buttons = document.querySelectorAll(".modalable")
+    const modal = document.querySelector(".modal__container")
+    const close = document.querySelector(".modal__close")
     buttons.forEach(button =>
         button.addEventListener("click", () => modal.removeAttribute("hidden")),
-    );
+    )
     if (close)
         close.addEventListener("click", () =>
             modal.setAttribute("hidden", "hidden"),
-        );
+        )
     //--- redirect to services ---
-    const details = document.querySelectorAll(".services__details");
+    const details = document.querySelectorAll(".services__details")
     details.forEach(el => {
         el.addEventListener("click", () => {
-            location.pathname = "/services.html";
-        });
-    });
+            location.pathname = "/services.html"
+        })
+    })
     //--- Validation
-    const modalForm = document.querySelector(".modal__form");
+    const modalForm = document.querySelector(".modal__form")
     if (modalForm) {
-        const validate = Validation(modalForm);
-        console.log(validate.valid);
-        console.log(validate.data);
+        const validate = Validation(modalForm)
+        console.log(validate.valid)
+        console.log(validate.data)
         validate.addMask({
             phone: new Inputmask("+7(999) 999-99-99"),
             text: new Inputmask({ regex: "[a-zA-Zа-яёА-ЯЁ0-9]{1,}" }),
-        });
+        })
         validate.data.submit[0].addEventListener("click", ev => {
-            ev.preventDefault();
+            ev.preventDefault()
             if (validate.valid) {
                 fetch("/mail.php", {
                     method: "POST",
                     body: new FormData(modalForm),
-                });
+                })
             } else {
-                [...modalForm.elements].forEach(e => e.reportValidity());
+                ;[...modalForm.elements].forEach(e => e.reportValidity())
             }
-        });
+        })
     }
 }
