@@ -26,7 +26,7 @@ const injectJSON = async () => {
         });
     dataFromFiles = await Promise.all(dataFromFiles);
     return dataFromFiles.reduce((acc, e) => ({ ...acc, ...e }), {});
-}
+};
 
 const clean = path => cb => {
     del([path]);
@@ -70,7 +70,7 @@ const jsTask = cb =>
         .pipe(dest("./dist"));
 
 const pugTask = async () => {
-    const json = await injectJSON() 
+    const json = await injectJSON();
     src("./src/pug/*.pug")
         .pipe(
             pug({
@@ -97,7 +97,7 @@ const pugTask = async () => {
                             cwd: file.cwd,
                             path: path.resolve(
                                 file.base,
-                                "." + pathImg.split("src")[1],//не нравиттся, найти способ получить разницу в пути между источником и целью
+                                "." + pathImg.split("src")[1], //не нравиттся, найти способ получить разницу в пути между источником и целью
                             ),
                             contents: data,
                         }),
@@ -117,7 +117,7 @@ const sassTask = cb =>
         .pipe(dest("./dist"));
 
 const watchTask = () => {
-    watch("./src/js/main.js", series(clean("./dist/main.js"), jsTask));
+    watch("./src/js/*.js", series(clean("./dist/main.js"), jsTask));
     watch("./src/components/**/*", series(clean("./dist/*.html"), pugTask));
     watch("./src/pug/**/*.pug", series(clean("./dist/*.html"), pugTask));
     watch("./src/**/*.sass", series(clean("./dist/*.css"), sassTask));

@@ -1,4 +1,5 @@
 import Splide from "@splidejs/splide";
+import { startLicense } from "./modalLicense";
 
 // if (document.readyState === "loading") {
 //     start();
@@ -15,6 +16,7 @@ window.onload = start;
 
 function start() {
     console.log("start");
+    startLicense();
     try {
         ymaps.ready(init);
         function init() {
