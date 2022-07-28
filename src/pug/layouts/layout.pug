@@ -8,6 +8,8 @@ html(lang="ru")
     body
         include ./header.pug
         include ./menu.pug
+        section.modal__container(hidden="hidden")
+            include ./modal.pug
         block main
         include ./footer.pug
 
