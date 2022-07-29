@@ -50,8 +50,18 @@ export function YM() {
                 ),
             );
             stomaYM.behaviors.disable("scrollZoom");
-            stomaYM.behaviors.disable("drag");
             stomaYM.behaviors.enable("multiTouch");
+            function toggleDrag({ matches }) {
+                console.log(matches);
+                if (matches) {
+                    stomaYM.behaviors.disable("drag");
+                } else {
+                    stomaYM.behaviors.enable("drag");
+                }
+            }
+            const mmo = matchMedia("(orientation: portrait)");
+            toggleDrag(mmo);
+            mmo.addEventListener("change", toggleDrag);
         }
     } catch (error) {
         console.warn("ошибка в Yandex map", error);
