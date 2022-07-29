@@ -13,6 +13,7 @@ export function YM() {
                 // Уровень масштабирования. Допустимые значения:
                 // от 0 (весь мир) до 19.
                 zoom: 17,
+                draggable: false,
             });
             new ymaps.GeoObject(
                 {
@@ -49,6 +50,8 @@ export function YM() {
                 ),
             );
             stomaYM.behaviors.disable("scrollZoom");
+            stomaYM.behaviors.disable("drag");
+            stomaYM.behaviors.enable("multiTouch");
         }
     } catch (error) {
         console.warn("ошибка в Yandex map", error);
