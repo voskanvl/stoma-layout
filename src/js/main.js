@@ -60,6 +60,7 @@ function start() {
     const buttons = document.querySelectorAll(".modalable");
     const modal = document.querySelector(".modal__container");
     const close = document.querySelector(".modal__close");
+    const errorEl = document.querySelector(".modal__error");
     buttons.forEach(button =>
         button.addEventListener("click", () => modal.removeAttribute("hidden")),
     );
@@ -93,14 +94,36 @@ function start() {
                 }
             }),
         );
-        validate.data.submit.addEventListener("click", function (ev) {
+        validate.data.submit.addEventListener("click", async function (ev) {
             ev.preventDefault();
             if (validate.valid) {
                 this.removeAttribute("disabled");
-                fetch("/mail.php", {
-                    method: "POST",
-                    body: new FormData(modalForm),
-                });
+                try {
+                    let response = await fetch("/mail.php", {
+                        method: "POST",
+                        body: new FormData(modalForm),
+                    });
+                    if (response.ok) {
+                        setTimeout(() => {
+                            validate.data.phone.forEach(e => (e.value = ""));
+                            validate.data.text.forEach(e => (e.value = ""));
+                            validate.data.checkbox.forEach(e =>
+                                e.removeAttribute("checkbox"),
+                            );
+                            errorEl.setAttribute("hidden", "hidden");
+                            modal.setAttribute("hidden", "hidden");
+                        }, 3000);
+                    } else {
+                        const { status, statusText } = response;
+                        throw Error(status + " " + statusText);
+                    }
+                } catch (error) {
+                    console.log("🚀 ~ error", error);
+
+                    errorEl.textContent =
+                        "Произошла ошибка при отправке данных на сервер";
+                    errorEl.removeAttribute("hidden");
+                }
             } else {
                 [...modalForm.elements].forEach(e => e.reportValidity());
             }
