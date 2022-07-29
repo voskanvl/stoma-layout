@@ -34,11 +34,13 @@ export function Validation(form) {
             return formElement.checkValidity();
         },
         data: {
+            all: [...formElement.elements],
+            required,
             phone: group.phone,
             text: group.text,
             email: group.email,
             checkbox: group.checkbox,
-            submit: group.submit,
+            submit: group.submit.length === 1 ? group.submit[0] : group.submit,
         },
         addMask(props) {
             const avaibleFields = ["phone", "text", "email", "checkbox"];
