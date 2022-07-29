@@ -38,7 +38,7 @@ export function YM() {
             );
             stomaYM.geoObjects.add(
                 new ymaps.Placemark(
-                    [53.230595, 45.012605],
+                    [53.2306, 45.011605],
                     {
                         balloonContent: "цвет <strong>красный</strong>",
                         iconCaption: "Стом-А",
