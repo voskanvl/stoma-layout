@@ -12,7 +12,8 @@
         "dev": "gulp & gulp browserSync",
         "build": "gulp",
         "watch": "gulp watch",
-        "live": "gulp & gulp live"
+        "live": "gulp live",
+        "reload": "gulp livereload"
     },
     "keywords": [],
     "author": "",
@@ -32,6 +33,7 @@
         "gulp-include": "^2.4.1",
         "gulp-pug": "^5.0.0",
         "gulp-sass": "^5.1.0",
+        "gulp-server-livereload": "^1.9.2",
         "gulp-sourcemaps": "^3.0.0",
         "gulp-svg-sprite": "^1.5.0",
         "gulp-util": "^3.0.8",
