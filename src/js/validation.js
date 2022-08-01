@@ -1,5 +1,5 @@
 import Inputmask from "inputmask";
-function add(type, validator) {}
+
 export function Validation(form) {
     const formElement =
         typeof form === "object" && form.constructor.name === "HTMLFormElement"
