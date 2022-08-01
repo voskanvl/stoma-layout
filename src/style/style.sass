@@ -19,9 +19,12 @@ button, [type="submit"]
     cursor: pointer
     font-size: clamp(12px,8.33vw,16px)
     white-space: nowrap
+    filter: contrast(100%) grayscale(0%) blur(0px)
+    transition: filter 0.7s
     &[disabled]
         cursor: default
-        filter: contrast(50%) grayscale(80%)
+        filter: contrast(50%) grayscale(80%) blur(2px)
+        transition: filter 0.7s
 
 a
     text-decoration: none
