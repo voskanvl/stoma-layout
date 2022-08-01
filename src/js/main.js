@@ -20,7 +20,7 @@ window.onload = start;
 function start() {
     console.log("start");
     if (document.querySelector(".modalLicense__container")) startLicense();
-    if (location.pathname === "/" || location.pathname === "/contacts.html")
+    if (location.pathname === "/" || document.querySelector(".contacts #map"))
         YM();
 
     if (document.querySelector("#splideReview"))
