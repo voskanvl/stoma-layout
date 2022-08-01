@@ -12,7 +12,6 @@
         "dev": "gulp & gulp browserSync",
         "build": "gulp",
         "watch": "gulp watch",
-        "live": "gulp live",
         "reload": "gulp livereload"
     },
     "keywords": [],

@@ -2,19 +2,14 @@ const { src, dest, series, parallel, watch } = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
 const del = require("del");
 const pug = require("gulp-pug");
-// const include = require("gulp-include");
 const webpack = require("webpack-stream");
-// const named = require("vinyl-named");
 const sourcemaps = require("gulp-sourcemaps");
-const browserSync = require("browser-sync").create();
 const fs = require("fs/promises");
 const { readFileSync } = require("fs");
 const path = require("path");
 const svgSprite = require("gulp-svg-sprite");
 const through2 = require("through2");
-// const gutil = require("gulp-util")
 const Vinyl = require("vinyl");
-const liveServer = require("live-server");
 const server = require("gulp-server-livereload");
 
 const injectJSON = async () => {
@@ -33,18 +28,6 @@ const clean = path => cb => {
     del([path]);
     cb();
 };
-
-// const sync = () =>
-//     browserSync.init({
-//         watch: true,
-//         server: {
-//             baseDir: "./dist",
-//             index: "about.html",
-//         },
-//         ui: {
-//             port: 8080,
-//         },
-//     });
 
 const svgSpriteTask = cb =>
     src("./src/assets/svg/**/*.svg")
@@ -129,7 +112,7 @@ const watchTask = () => {
     );
 };
 
-// exports.sync = sync;
+exports.sync = sync;
 
 exports.js = jsTask;
 
@@ -141,7 +124,7 @@ exports.sprite = svgSpriteTask;
 
 exports.watch = watchTask;
 
-// exports.browserSync = parallel(sync, watchTask);
+exports.browserSync = parallel(sync, watchTask);
 
 const reload = () => {
     src("./dist/").pipe(
@@ -163,10 +146,6 @@ const defaultTask = parallel(
 );
 exports.default = defaultTask;
 
-exports.live = series(
-    defaultTask,
-    parallel(watchTask, () => liveServer.start({ root: "./dist" })),
-);
 exports.reload = reload;
 
 exports.livereload = series(defaultTask, parallel(reload, watchTask));
