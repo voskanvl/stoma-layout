@@ -3,10 +3,17 @@
     margin: 0 auto 152px
     padding: 0 1rem
 
-    &__row
+    &__row, &__row_pdf, &__row_doc
         display: flex
         align-items: center
         text-transform: uppercase
+        height: 66px
+        padding-left: 74px
+        background-position: 0 50%
+        &_pdf
+            background: url("../../assets/svg/pdf.svg") no-repeat
+        &_doc
+            background: url("../../assets/svg/doc.svg") no-repeat
 
     &__svg
         width: 56px
