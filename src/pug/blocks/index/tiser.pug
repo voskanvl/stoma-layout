@@ -2,10 +2,10 @@
     article#splideTiser.splide
         .splide__track
             ul.splide__list
-                each i in Array(4).fill(null).map((_,i)=>i)
+                each i in tiser
                     li.splide__slide 
                         .tiser__wrapper
                             .tiser__block
-                                each i in tiser.text
-                                    p.tiser__text= i
-                        img.tiser__img(src=tiser.img alt="tiser")
+                                each j in i.text
+                                    p.tiser__text= j
+                        img.tiser__img(src=i.img alt="tiser")
