@@ -112,7 +112,7 @@ const watchTask = () => {
     );
 };
 
-exports.sync = sync;
+// exports.sync = sync;
 
 exports.js = jsTask;
 
@@ -124,7 +124,7 @@ exports.sprite = svgSpriteTask;
 
 exports.watch = watchTask;
 
-exports.browserSync = parallel(sync, watchTask);
+// exports.browserSync = parallel(sync, watchTask);
 
 const reload = () => {
     src("./dist/").pipe(

@@ -5,14 +5,11 @@
     "main": "index.js",
     "browserslist": "last 3 version",
     "scripts": {
-        "dev:old": "webpack serve --config ./config/webpack.dev.config.js --stats-children ",
-        "build:old": "webpack --config ./config/webpack.build.config.js",
         "clean": "rd /s /q dist",
-        "start": "serve ./dist",
-        "dev": "gulp & gulp browserSync",
+        "start": "gulp & serve ./dist",
         "build": "gulp",
         "watch": "gulp watch",
-        "reload": "gulp livereload"
+        "reload": "gulp & gulp livereload"
     },
     "keywords": [],
     "author": "",
