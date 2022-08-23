@@ -41,7 +41,7 @@ export function YM() {
                 new ymaps.Placemark(
                     [53.243023, 45.013438],
                     {
-                        balloonContent: "цвет <strong>красный</strong>",
+                        balloonContent: "Аустрина, 150",
                         iconCaption: "Стом-А",
                     },
                     {

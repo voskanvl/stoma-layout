@@ -82,7 +82,7 @@ function start() {
         window.validate = validate;
         validate.addMask({
             phone: new Inputmask("+7(999) 999-99-99"),
-            text: new Inputmask({ regex: "[a-zA-Zа-яёА-ЯЁ0-9]{1,}" }),
+            text: new Inputmask({ regex: "[a-zA-Zа-яёА-ЯЁ0-9/s ]{1,}" }),
         });
         //--- handle inputs & check validity. remove disabled sign from submit if form valid
         validate.data.required.forEach(e =>
